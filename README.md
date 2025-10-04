@@ -33,8 +33,6 @@ Copy code
 sudo apt-get update && sudo apt-get install -y build-essential cmake libpcap-dev
 Build
 bash
-Copy code
-git clone https://github.com/adit019/network-traffic-analyzer-ids.git
 cd network-traffic-analyzer-ids
 cmake -S . -B build
 cmake --build build -j
@@ -80,9 +78,6 @@ tests/*.c           # unit tests (ctest)
 docs/THREAT_MODEL.md
 🔒 Threat Model (SDL Summary)
 See docs/THREAT_MODEL.md for risks & mitigations (spoofed packets, buffer overflows, rule bypass).
-
-🤝 Contributing
-This is a portfolio/educational repo. Issue reports welcome; PRs may be selectively accepted.
 
 📜 License
 Copyright © 2025 Adit Sharma.
