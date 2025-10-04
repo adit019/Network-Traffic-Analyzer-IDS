@@ -1,0 +1,9 @@
+﻿build/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.pdb
+.vscode/
+.idea/

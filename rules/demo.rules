@@ -1,0 +1,7 @@
+﻿# Simple demo rules:
+#   proto == TCP            -> alert
+#   dst_port == 23          -> alert (telnet)
+#   http_host contains bad  -> alert
+proto == TCP
+dst_port == 23
+http_host contains bad
