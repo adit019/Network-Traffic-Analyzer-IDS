@@ -6,18 +6,18 @@
 ![Threads](https://img.shields.io/badge/threads-multithreaded-success)
 
 A high-performance **packet capture + IDS** engine:
-- 📦 **Capture** from live interfaces or **pcap** files via **libpcap**
-- 🔎 **Deep Packet Inspection** (HTTP/TCP demo) with extracted features
-- 🧠 **Rules engine** (tiny DSL) for anomaly/IOC matching
-- 🚀 **Multithreaded** pipeline; tested with **600 concurrent packets in flight**
-- 📈 **Benchmark** tool for pkt/s & memory footprint estimates
-- 🎯 Target: **95%+ detection accuracy** on curated demo flows *(see notes below)*
+-  **Capture** from live interfaces or **pcap** files via **libpcap**
+-  **Deep Packet Inspection** (HTTP/TCP demo) with extracted features
+-  **Rules engine** (tiny DSL) for anomaly/IOC matching
+-  **Multithreaded** pipeline; tested with **600 concurrent packets in flight**
+-  **Benchmark** tool for pkt/s & memory footprint estimates
+-  Target: **95%+ detection accuracy** on curated demo flows *(see notes below)*
 
 > **License:** Proprietary. All rights reserved. See [LICENSE](LICENSE).
 
 ---
 
-## 🏗 Architecture
+##  Architecture
 
 `	ext
 PCAP (live/offline) --> Capture --> Ring Buffer --> [ N x Worker Threads ]
@@ -26,7 +26,7 @@ PCAP (live/offline) --> Capture --> Ring Buffer --> [ N x Worker Threads ]
                                    Feature Extract       Rules Engine
                                          |                   |
                                          +-------> Alerts / Stats ------> CLI/Logs
-🚀 Quick Start (Linux)
+ Quick Start (Linux)
 Prereqs
 bash
 Copy code
@@ -44,11 +44,11 @@ Benchmark vs pcap
 bash
 Copy code
 ./build/pcap_bench /path/to/traffic.pcap
-🧪 Tests
+ Tests
 bash
 Copy code
 ctest --test-dir build --output-on-failure
-🔍 Rules DSL (minimal)
+ Rules DSL (minimal)
 Example rules/demo.rules:
 
 makefile
@@ -62,12 +62,12 @@ This repo ships with a simple, deterministic rules engine and demo DPI.
 On labeled demo pcaps (HTTP/TCP + known IOC hosts), these rules routinely flag >95% of injected events.
 For production-grade detection, extend rules.c with richer protocol decoders or plug in a ML classifier.
 
-🧯 Troubleshooting
+ Troubleshooting
 pcap open error: run with sudo or grant CAP_NET_ADMIN for live capture.
 
 Very large pcaps: increase pipeline threads (--threads) and system rmem.
 
-📦 Project Layout
+ Project Layout
 bash
 Copy code
 include/nta.h       # public API
@@ -76,9 +76,9 @@ rules/demo.rules    # starter rules
 tools/pcap_bench.c  # throughput benchmark
 tests/*.c           # unit tests (ctest)
 docs/THREAT_MODEL.md
-🔒 Threat Model (SDL Summary)
+ Threat Model (SDL Summary)
 See docs/THREAT_MODEL.md for risks & mitigations (spoofed packets, buffer overflows, rule bypass).
 
-📜 License
+ License
 Copyright © 2025 Adit Sharma.
 All rights reserved. See LICENSE.
